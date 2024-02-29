@@ -17,7 +17,7 @@ function CreateBooks() {
     const data = {title, author, publishYear};
     setLoading(true);
     axios
-      .post('http://localhost:5555/books',data)
+      .post('https://bookstore-mern-stack-yvz9.onrender.com/books',data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book created sucessfully', {variant: 'success'});
