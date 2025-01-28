@@ -4,7 +4,10 @@
 The **BookStore Application** is a full-stack project built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js). This application allows users to efficiently manage a book inventory through intuitive CRUD (Create, Read, Update, Delete) operations. The application has been deployed on **Render**, ensuring accessibility and scalability.
 
 ---
+## Deployment
+The application is deployed on Render. You can access it [here](https://bookstore-vwcs.onrender.com/).
 
+---
 ## Features
 - **Full CRUD Operations:**
   - Add new books to the inventory.
@@ -24,7 +27,6 @@ The **BookStore Application** is a full-stack project built using the **MERN sta
 
 - **Deployment:**
   - Hosted on **Render** for reliable and scalable access.
-
 ---
 
 ## Tech Stack
@@ -114,10 +116,6 @@ The **BookStore Application** is a full-stack project built using the **MERN sta
 
 ---
 
-## Deployment
-The application is deployed on Render. You can access it [here](https://bookstore-vwcs.onrender.com/).
-
----
 
 ## Future Improvements
 - Implement user authentication and authorization.
