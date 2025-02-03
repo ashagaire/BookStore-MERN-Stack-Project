@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main-div {
+  @apply max-w-5xl p-4 mx-auto;
+}
+
+.form-lable {
+  @apply text-xl mr-4 text-gray-500; /* Using Tailwind's @apply directive */
+}
+.input-style {
+  @apply border-2 border-gray-500 px-4 py-2 w-full;
+}
+
+.create-buttons-group {
+  @apply flex justify-between m-8; /* Using Tailwind's @apply directive */
+}
+.edit-buttons-group {
+  @apply flex justify-between m-8; /* Using Tailwind's @apply directive */
+}
+.centered-title {
+  @apply text-3xl my-4 flex justify-center;
+}

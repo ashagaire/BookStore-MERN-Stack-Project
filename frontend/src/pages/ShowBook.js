@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import BackButton from '../components/BackButton'
-import Spinner from '../components/Spinner'
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import Spinner from "../components/Loading";
+import dayjs from "dayjs";
+import { Card, CardContent, Typography } from "@mui/material";
 
 function ShowBook() {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -17,51 +18,67 @@ function ShowBook() {
       .then((response) => {
         setBook(response.data);
         setLoading(false);
-      }) 
+        console.log(response.data);
+      })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
-       
       });
-  },[])
+  }, []);
 
   return (
-    <div className='p-4'>
+    <div className="main-div ">
       <BackButton />
-      <h1 className='text-3xl my-4 flex justify-center'>Book details</h1>
+      <h1 className="centered-title">Book details</h1>
       {loading ? (
         <Spinner />
       ) : (
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4 mx-auto'>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Id</span>
-            <span>{book._id}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Title</span>
-            <span>{book.title}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Author</span>
-            <span>{book.author}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Published Year</span>
-            <span>{book.publishYear}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Created Time</span>
-            <span>{new Date(book.createdAt).toString()}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-            <span>{new Date(book.updatedAt).toString()}</span>
-          </div>
-        </div>
+        <Card className=" max-w-lg p-4 mx-auto">
+          <CardContent>
+            <div className="my-4 grid grid-cols-3">
+              <Typography variant="h6" className="mr-4 text-gray-500">
+                Title
+              </Typography>
+              <Typography className="col-span-2" variant="h6">
+                {book.title}
+              </Typography>
+            </div>
+            <div className="my-4 grid grid-cols-3">
+              <Typography variant="h6" className="mr-4 text-gray-500">
+                Author
+              </Typography>
+              <Typography className="col-span-2" variant="h6">
+                {book.author}
+              </Typography>
+            </div>
+            <div className="my-4 grid grid-cols-3">
+              <Typography variant="h6" className="mr-4 text-gray-500">
+                Published Date
+              </Typography>
+              <Typography className="col-span-2" variant="h6">
+                {book.publishYear}
+              </Typography>
+            </div>
+            <div className="my-4 grid grid-cols-3">
+              <Typography variant="h6" className="mr-4 text-gray-500">
+                Record Added
+              </Typography>
+              <Typography className="col-span-2" variant="h6">
+                {dayjs(book.createdAt).format("DD.MM.YYYY")}
+              </Typography>
+            </div>
+            <div className="my-4 grid grid-cols-3">
+              <Typography variant="h6" className="mr-4 text-gray-500">
+                Last Updated
+              </Typography>
+              <Typography className="col-span-2" variant="h6">
+                {dayjs(book.updatedAt).format("DD.MM.YYYY")}
+              </Typography>
+            </div>
+          </CardContent>
+        </Card>
       )}
-      
     </div>
-  )
+  );
 }
 
-export default ShowBook
+export default ShowBook;
