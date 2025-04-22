@@ -1,5 +1,5 @@
 import { PiBookOpenTextLight } from "react-icons/pi";
-import { AiOutlineClose, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import dayjs from "dayjs";
 

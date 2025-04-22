@@ -32,7 +32,7 @@ function ActionBar({ setShowType, handleSearch, setSearchKeyword }) {
       <div className="flex justify-center items-center gap-x-4">
         <input
           type="text"
-          placeholder="Search books..."
+          placeholder="Search"
           className="search-input-style"
           onChange={onSearchChange}
         />

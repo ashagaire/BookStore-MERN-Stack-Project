@@ -9,6 +9,7 @@ function Home() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  // eslint-disable-next-line no-unused-vars
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function Home() {
       return books;
     }
     axios
-      .get(`http://localhost:5555/books/search`, {
+      .get(`https://bookstore-mern-stack-yvz9.onrender.com/books/search`, {
         params: { keyword },
       })
       .then((response) => {
