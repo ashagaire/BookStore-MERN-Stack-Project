@@ -18,7 +18,6 @@ function ShowBook() {
       .then((response) => {
         setBook(response.data);
         setLoading(false);
-        console.log(response.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -63,7 +62,7 @@ function ShowBook() {
                 Record Added
               </Typography>
               <Typography className="col-span-2" variant="h6">
-                {dayjs(book.createdAt).format("DD.MM.YYYY")}
+                {dayjs(book.createdAt).format("YYYY-MM-DD")}
               </Typography>
             </div>
             <div className="my-4 grid grid-cols-3">
@@ -71,7 +70,7 @@ function ShowBook() {
                 Last Updated
               </Typography>
               <Typography className="col-span-2" variant="h6">
-                {dayjs(book.updatedAt).format("DD.MM.YYYY")}
+                {dayjs(book.updatedAt).format("YYYY-MM-DD")}
               </Typography>
             </div>
           </CardContent>

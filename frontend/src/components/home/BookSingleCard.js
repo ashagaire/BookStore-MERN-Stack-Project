@@ -6,6 +6,8 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
 import { BiUserCircle, BiShow } from "react-icons/bi";
 import { useState } from "react";
+import dayjs from "dayjs";
+
 import BookModel from "./BookModel";
 
 function BookSingleCard({ book }) {
@@ -18,7 +20,8 @@ function BookSingleCard({ book }) {
     >
       <div className="h-6">
         <h2 className="absolute top-1 right-2 px-4 py-1 bg-red-300 rounded-lg">
-          {book.publishYear.slice(0, 4)}
+          {/* {book.publishYear.slice(0, 4)} */}
+          {dayjs(book.publishYear).format("YYYY")}
         </h2>
       </div>
 

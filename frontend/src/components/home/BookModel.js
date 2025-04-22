@@ -1,8 +1,7 @@
 import { PiBookOpenTextLight } from "react-icons/pi";
 import { AiOutlineClose, AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineDelete } from "react-icons/md";
 import { BiUserCircle } from "react-icons/bi";
+import dayjs from "dayjs";
 
 function BookModel({ book, onClose }) {
   return (
@@ -19,7 +18,7 @@ function BookModel({ book, onClose }) {
           onClick={onClose}
         />
         <h2 className="w-fit px-4 py-1 bg-red-300 rounded-lg">
-          {book.publishYear.slice(0, 4)}
+          {dayjs(book.publishYear).format("YYYY")}
         </h2>
         <div className="py-4 ">
           <div className="flex justify-start items-center gap-x-2">

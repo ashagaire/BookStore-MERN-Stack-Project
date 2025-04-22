@@ -29,19 +29,22 @@ function ActionBar({ setShowType, handleSearch, setSearchKeyword }) {
           Table
         </Button>
       </div>
-      <input
-        type="text"
-        placeholder="Search books..."
-        onChange={onSearchChange}
-      />
-      <Button
-        variant="contained"
-        color="primary"
-        startIcon={<AddIcon />}
-        onClick={() => navigate("/books/create")}
-      >
-        Add New
-      </Button>
+      <div className="flex justify-center items-center gap-x-4">
+        <input
+          type="text"
+          placeholder="Search books..."
+          className="search-input-style"
+          onChange={onSearchChange}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<AddIcon />}
+          onClick={() => navigate("/books/create")}
+        >
+          Add New
+        </Button>
+      </div>
     </div>
   );
 }

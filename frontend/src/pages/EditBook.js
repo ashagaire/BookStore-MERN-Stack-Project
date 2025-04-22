@@ -22,7 +22,6 @@ function EditBook() {
         setPublishYear(response.data.publishYear);
         setTitle(response.data.title);
         setLoading(false);
-        console.log(response.data.publishYear);
       })
       .catch((error) => {
         setLoading(false);

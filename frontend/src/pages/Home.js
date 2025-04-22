@@ -25,15 +25,14 @@ function Home() {
   }, []);
 
   const handleSearch = (keyword) => {
-    if (!keyword) {
-      return;
+    if (keyword === "") {
+      return books;
     }
     axios
       .get(`http://localhost:5555/books/search`, {
         params: { keyword },
       })
       .then((response) => {
-        console.log("Search Results:", response.data.data);
         setBooks(response.data.data);
         setLoading(false);
       })
@@ -53,7 +52,6 @@ function Home() {
         setSearchKeyword={setSearchKeyword}
       />
 
-      {/* top title */}
       <main />
       <div className="flex justify-between items-center"></div>
       {loading ? (

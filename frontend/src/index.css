@@ -22,3 +22,7 @@
 .centered-title {
   @apply text-3xl my-4 flex justify-center;
 }
+
+.search-input-style {
+  @apply border-2 border-sky-600 rounded-md px-2 py-1 text-base focus:outline-none  focus:border-sky-500 transition duration-300;
+}
