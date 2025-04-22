@@ -2,8 +2,14 @@ import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
-function ActionBar({ setShowType }) {
+function ActionBar({ setShowType, handleSearch, setSearchKeyword }) {
   const navigate = useNavigate();
+
+  const onSearchChange = (e) => {
+    const keyword = e.target.value;
+    setSearchKeyword(keyword);
+    handleSearch(keyword);
+  };
 
   return (
     <div className="flex p-4 justify-between">
@@ -23,7 +29,11 @@ function ActionBar({ setShowType }) {
           Table
         </Button>
       </div>
-
+      <input
+        type="text"
+        placeholder="Search books..."
+        onChange={onSearchChange}
+      />
       <Button
         variant="contained"
         color="primary"

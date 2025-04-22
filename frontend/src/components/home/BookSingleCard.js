@@ -18,7 +18,7 @@ function BookSingleCard({ book }) {
     >
       <div className="h-6">
         <h2 className="absolute top-1 right-2 px-4 py-1 bg-red-300 rounded-lg">
-          {book.publishYear}
+          {book.publishYear.slice(0, 4)}
         </h2>
       </div>
 

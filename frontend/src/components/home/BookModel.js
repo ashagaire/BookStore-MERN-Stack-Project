@@ -19,7 +19,7 @@ function BookModel({ book, onClose }) {
           onClick={onClose}
         />
         <h2 className="w-fit px-4 py-1 bg-red-300 rounded-lg">
-          {book.publishYear}
+          {book.publishYear.slice(0, 4)}
         </h2>
         <div className="py-4 ">
           <div className="flex justify-start items-center gap-x-2">

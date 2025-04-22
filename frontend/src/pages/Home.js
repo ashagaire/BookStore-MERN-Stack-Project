@@ -9,6 +9,7 @@ function Home() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -19,17 +20,39 @@ function Home() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
       });
   }, []);
+
+  const handleSearch = (keyword) => {
+    if (!keyword) {
+      return;
+    }
+    axios
+      .get(`http://localhost:5555/books/search`, {
+        params: { keyword },
+      })
+      .then((response) => {
+        console.log("Search Results:", response.data.data);
+        setBooks(response.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Search Error:", error);
+      });
+  };
 
   return (
     <div className=" main-div">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl my-8 mx-auto"> Books</h1>
       </div>
-      <ActionBar setShowType={setShowType} />
+      <ActionBar
+        setShowType={setShowType}
+        handleSearch={handleSearch}
+        setSearchKeyword={setSearchKeyword}
+      />
+
       {/* top title */}
       <main />
       <div className="flex justify-between items-center"></div>

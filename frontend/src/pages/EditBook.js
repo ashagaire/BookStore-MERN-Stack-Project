@@ -49,7 +49,7 @@ function EditBook() {
   return (
     <div className="main-div">
       <h1 className="centered-title"> Edit Book </h1>
-      {loading ? <CircularProgress /> : ""}
+      <div className="my-4 hidden">{loading ? <CircularProgress /> : ""}</div>
       <Box
         component="form"
         className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto"
